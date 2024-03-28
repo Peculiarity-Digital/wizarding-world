@@ -58,11 +58,12 @@ jobs:
       - name: Compile test results
         uses: dorny/test-reporter@v1
         if: success() || failure()
-        with:
-          artifact: test-results
-          name: Flutter tests 
-          path: 'reports/test-results.json'
-          reporter: flutter-json
+        with:          
+          name: '🧪📊 Unit tests report'
+          path: reports/*.json
+          reporter: 'flutter-json'
+          max-annotations: '50'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Handle failures
         if: failure()
