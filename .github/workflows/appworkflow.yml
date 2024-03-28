@@ -54,7 +54,7 @@ jobs:
     steps:
       - name: Print directory
         run: |
-          ls -a
+          ls -a 
 
       - name: Run tests and analysis
         run: |
