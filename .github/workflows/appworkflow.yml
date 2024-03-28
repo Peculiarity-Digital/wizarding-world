@@ -25,34 +25,35 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./src    
+        working-directory: src    
 
     steps:
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '21'
+          cache: 'gradle'
 
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          cache: true
 
       - name: Check Flutter version
         run: |
           flutter --version
 
-      - name: Get project dependencies
-        working-directory: ./src
+      - name: Get project dependencies        
         run: |
           flutter pub get
 
   test_and_analyze:
-    needs: install_flutter_and_java
+    needs: 
     runs-on: ubuntu-latest
     name: Test and Analyze
     defaults:
       run:
-        working-directory: ./src
+        working-directory: src
 
     steps:
       - name: Print directory
@@ -74,4 +75,5 @@ jobs:
 
       - name: Handle failures
         if: failure()
-        run: exit 1
+        run: |
+          exit 1
