@@ -51,6 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Test and Analyze
 
+    steps:
       - name: Run tests and analysis
         run: |
           flutter test && analysis
