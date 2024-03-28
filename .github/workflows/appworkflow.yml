@@ -13,6 +13,7 @@ permissions:
 
 jobs:
   checkout:
+    runs-on: ubuntu-latest
     name: Check out repository
 
     steps:
@@ -20,6 +21,7 @@ jobs:
 
   install_flutter_and_java:
     name: Install Flutter and Java
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/setup-java@v4
