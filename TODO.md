@@ -13,10 +13,15 @@ No notes
 - [x] Configure markdown files, `.github/` directory and associate code owner(s) to `/src`
 - [x] Configure dependabot
 - [ ] Define the solution architecture (clean/ modular)
-- [ ] Bring in packages
-  - [ ] dio
-  - [ ] riverpod
-  - [ ] flutter_test
-  - [ ] builder
+- [x] Bring in packages
+  - [x] dio
+  - [x] riverpod  
+  - [x] build_runner
+  - [x] freezed
+- [x] Set up workflow to run test and analysis against the project
+- [ ] Set up workflow to build, at the very least:
+  - [ ] Windows
+  - [ ] Linux
+  - [ ] Android
 
 ### Sprint 1

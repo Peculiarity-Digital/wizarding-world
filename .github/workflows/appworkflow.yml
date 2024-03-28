@@ -1,1 +1,70 @@
 name: Application Pipeline Workflow
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+
+permissions:
+  contents: read
+  actions: read
+  checks: write      
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    name: Check out repository
+
+    steps:
+      - uses: actions/checkout@v4
+
+  install_flutter_and_java:
+    name: Install Flutter and Java
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '21'
+          cache: 'gradle'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Check Flutter version
+        run: |
+          flutter --version
+
+      - name: Get project dependencies
+        working-directory: ./src
+        run: |
+          flutter pub get
+
+  test_and_analyze:
+    runs-on: ubuntu-latest
+    name: Test and Analyze
+    defaults:
+      run:
+        working-directory: ./src
+
+    steps:
+      - name: Run tests and analysis
+        run: |
+          flutter test && analysis
+        
+      - name: Compile test results
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          artifact: test-results
+          name: Flutter tests 
+          path: 'reports/test-results.json'
+          reporter: flutter-json
+
+      - name: Handle failures
+        run: |
+          exit ${{ failure() }}
