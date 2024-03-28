@@ -51,7 +51,9 @@ jobs:
           flutter test && flutter analyze
 
       - name: List directory
-        run: ls -a          
+        run: |
+          cd reports
+          ls -a          
         
       - name: Compile test results
         uses: dorny/test-reporter@v1
