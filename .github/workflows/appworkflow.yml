@@ -71,5 +71,4 @@ jobs:
 
       - name: Handle failures
         if: failure()
-        run: |
-          exit 1
+        run: exit 1
