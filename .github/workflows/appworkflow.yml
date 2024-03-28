@@ -14,19 +14,17 @@ permissions:
   checks: write      
 
 jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    name: Check out repository
-
-    steps:
-      - uses: actions/checkout@v4
-
   install_flutter_and_java:
     needs: checkout
     name: Install Flutter and Java
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
 
     steps:
+      - uses: actions/checkout@v4
+
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
@@ -52,8 +50,13 @@ jobs:
     needs: install_flutter_and_java
     runs-on: ubuntu-latest
     name: Test and Analyze
+    defaults:
+      run:
+        working-directory: src
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: Run tests and analysis
         run: |
           flutter test && analysis
