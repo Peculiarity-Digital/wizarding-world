@@ -46,21 +46,20 @@ jobs:
         run: |
           flutter pub get
 
-      - name: Run tests and analysis
+      - name: Run tests
         run: |
-          flutter test && flutter analyze
+          flutter test --coverage
 
-      - name: List directory
+      - name: Run analyze
         run: |
-          cd reports
-          ls -a          
+          flutter analyze       
         
       - name: Compile test results
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:          
           name: '🧪📊 Unit tests report'
-          path: reports/*.json
+          path: test_reports/results.json
           reporter: 'flutter-json'
           max-annotations: '50'
           token: ${{ secrets.GITHUB_TOKEN }}
