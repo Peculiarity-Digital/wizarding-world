@@ -20,8 +20,12 @@ jobs:
       - uses: actions/checkout@v4
 
   install_flutter_and_java:
+    needs: checkout
     name: Install Flutter and Java
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src    
 
     steps:
       - uses: actions/setup-java@v4
@@ -45,6 +49,7 @@ jobs:
           flutter pub get
 
   test_and_analyze:
+    needs: install_flutter_and_java
     runs-on: ubuntu-latest
     name: Test and Analyze
     defaults:
