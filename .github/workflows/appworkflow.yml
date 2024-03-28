@@ -14,8 +14,8 @@ permissions:
   checks: write      
 
 jobs:
-  install_flutter_and_java:
-    name: Install Flutter and Java
+  setup_and_test:
+    name: Setup and Test,
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -44,17 +44,6 @@ jobs:
       - name: Get project dependencies        
         run: |
           flutter pub get
-
-  test_and_analyze:
-    needs: install_flutter_and_java
-    runs-on: ubuntu-latest
-    name: Test and Analyze
-    defaults:
-      run:
-        working-directory: src
-
-    steps:
-      - uses: actions/checkout@v4
 
       - name: Run tests and analysis
         run: |
