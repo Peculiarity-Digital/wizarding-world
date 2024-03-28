@@ -1,0 +1,14 @@
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "pub"
+    directory: "/src"
+    open-pull-requests-limit: 3
+    schedule:
+      interval: "weekly"
+      time: "09:00"
+      timezone: Africa/Johannesburg
+    target-branch: "main"
+    labels:
+      - "dependencies"
+      - "dependabot: main"
