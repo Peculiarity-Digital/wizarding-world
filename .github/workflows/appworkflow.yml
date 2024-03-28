@@ -5,6 +5,8 @@ on:
     types:
       - opened
       - reopened
+      - edited
+      - synchronize
 
 permissions:
   contents: read
@@ -23,9 +25,6 @@ jobs:
     needs: checkout
     name: Install Flutter and Java
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: src    
 
     steps:
       - uses: actions/setup-java@v4
@@ -53,15 +52,8 @@ jobs:
     needs: install_flutter_and_java
     runs-on: ubuntu-latest
     name: Test and Analyze
-    defaults:
-      run:
-        working-directory: src
 
     steps:
-      - name: Print directory
-        run: |
-          ls -a 
-
       - name: Run tests and analysis
         run: |
           flutter test && analysis
