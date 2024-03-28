@@ -15,7 +15,6 @@ permissions:
 
 jobs:
   install_flutter_and_java:
-    needs: checkout
     name: Install Flutter and Java
     runs-on: ubuntu-latest
     defaults:
