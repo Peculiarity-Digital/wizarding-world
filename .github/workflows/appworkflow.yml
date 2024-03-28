@@ -59,7 +59,7 @@ jobs:
         if: success() || failure()
         with:          
           name: '🧪📊 Unit tests report'
-          path: test_reports/results.json
+          path: test_reports\*.json
           reporter: 'flutter-json'
           max-annotations: '50'
           token: ${{ secrets.GITHUB_TOKEN }}
