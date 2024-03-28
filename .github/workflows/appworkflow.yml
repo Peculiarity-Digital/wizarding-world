@@ -48,7 +48,7 @@ jobs:
           flutter pub get
 
   test_and_analyze:
-    needs: 
+    needs: install_flutter_and_java
     runs-on: ubuntu-latest
     name: Test and Analyze
     defaults:
