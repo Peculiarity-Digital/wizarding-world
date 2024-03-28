@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   setup_and_test:
-    name: Setup and Test,
+    name: Setup and Test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -28,6 +28,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '21'
+          cache: 'gradle'
 
       - uses: subosito/flutter-action@v2
         with:
@@ -47,7 +48,7 @@ jobs:
 
       - name: Run tests and analysis
         run: |
-          flutter test && analyze
+          flutter test && flutter analyze
         
       - name: Compile test results
         uses: dorny/test-reporter@v1
