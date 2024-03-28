@@ -70,5 +70,6 @@ jobs:
           reporter: flutter-json
 
       - name: Handle failures
+        if: failure()
         run: |
-          exit ${{ failure() }}
+          exit 1
