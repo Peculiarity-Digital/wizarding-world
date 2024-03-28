@@ -59,9 +59,10 @@ jobs:
         if: success() || failure()
         with:          
           name: '🧪📊 Unit tests report'
-          path: test-results.json
+          path: test_reports/test-results.json
           reporter: 'flutter-json'
           max-annotations: '50'
+          working-directory: 'src'
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Handle failures
