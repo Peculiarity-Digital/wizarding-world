@@ -1,12 +1,9 @@
 name: Main Merge
 
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
+  push:
+      branches:
+          - main
       
 permissions:
   contents: write
@@ -46,7 +43,7 @@ jobs:
               uses: thedoctor0/zip-release@master
               with:
                 type: 'zip'
-                filename: WizardingWorld-${{github.ref_name}}-windows.zip
+                filename: WizardingWorld-release-windows.zip
                 directory: ${{github.workspace}}/src/build/windows/x64/runner/Release/
 
             - name: Windows Release
@@ -57,5 +54,5 @@ jobs:
                 tag_name: 'v0.0.1'
                 prerelease: false
                 draft: false
-                files: ${{github.workspace}}/src/build/windows/x64/runner/Release/WizardingWorld-${{github.ref_name}}-windows.zip
+                files: ${{github.workspace}}\src\build\windows\x64\runner\Release\WizardingWorld-release-windows.zip
                 

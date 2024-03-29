@@ -1,17 +1,12 @@
 name: Application Pipeline Workflow
 
-# on:
-#   pull_request:
-#     types:
-#       - opened
-#       - reopened
-#       - edited
-#       - synchronize
-
 on:
-  push:
-      branches:
-          - main
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
 
 permissions:
   contents: read
