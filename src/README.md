@@ -1,6 +1,10 @@
-# wizarding_world
+# Wizarding World Flutter App
 
 A new Flutter project.
+
+## Test and Coverage
+
+![badge](https://img.shields.io/endpoint?url=https://https://gist.github.com/JadedEric/c2f0af7b0a087eb6f9d0b210efe52b3f/raw/wizardingworld.json)
 
 ## Getting Started
 
