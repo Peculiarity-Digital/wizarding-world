@@ -58,9 +58,7 @@ jobs:
 
       - name: 🏃 Run tests
         run: |
-          flutter analyze --no-fatal-infos --no-fatal-warnings && \
-          flutter pub run dart_code_metrics:metrics analyze --no-fatal-warnings . && \
-          flutter format .
+          flutter test --coverage
 
       - name: 🏃 Run analyze
         run: |
