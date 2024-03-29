@@ -6,7 +6,11 @@ on:
       - opened
       - reopened
       - edited
-      - synchronize            
+      - synchronize
+      
+permissions:
+  contents: write
+  packages: write
 
 jobs:
     build_windows:
@@ -46,10 +50,12 @@ jobs:
                 directory: ${{github.workspace}}/src/build/windows/x64/runner/Release/
 
             - name: Windows Release
-              uses: softprops/action-gh-release@v1
-              if: startsWith(github.ref, 'refs/tags/')
+              uses: softprops/action-gh-release@v1              
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                files:
-                  ${{github.workspace}}/src/build/windows/x64/runner/Release/WizardingWorld-${{github.ref_name}}-windows.zip
+                tag_name: 'v0.0.1'
+                prerelease: false
+                draft: false
+                files: ${{github.workspace}}/src/build/windows/x64/runner/Release/WizardingWorld-${{github.ref_name}}-windows.zip
+                
