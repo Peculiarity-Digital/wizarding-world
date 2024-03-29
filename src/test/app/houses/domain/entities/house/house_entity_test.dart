@@ -103,8 +103,8 @@ void main() {
       expect(entity.element, isNull);
       expect(entity.ghost, isNull);
       expect(entity.commonRoom, isNull);
-      expect(entity.heads, isNotNull);
-      expect(entity.traits, isNotNull);
+      expect(entity.heads, isNull);
+      expect(entity.traits, isNull);
     });
 
     test('can create with partial parameters supplied', () {
