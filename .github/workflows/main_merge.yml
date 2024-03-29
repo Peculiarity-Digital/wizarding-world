@@ -43,7 +43,7 @@ jobs:
               with:
                 type: 'zip'
                 filename: WizardingWorld-${{github.ref_name}}-windows.zip
-                directory: ${{github.workspace}}/src/build/windows/runner/Release
+                directory: ${{github.workspace}}/src/build/windows/x64/runner/Release/
 
             - name: Windows Release
               uses: softprops/action-gh-release@v1
@@ -52,4 +52,4 @@ jobs:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                 files:
-                    ${{github.workspace}}/src/build/windows/runner/Release/WizardingWorld-${{github.ref_name}}-windows.zip
+                  ${{github.workspace}}/src/build/windows/x64/runner/Release/WizardingWorld-${{github.ref_name}}-windows.zip
