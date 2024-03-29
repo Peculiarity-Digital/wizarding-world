@@ -19,9 +19,42 @@ No notes
   - [x] build_runner
   - [x] freezed
 - [x] Set up workflow to run test and analysis against the project
-- [ ] Set up workflow to build, at the very least:
-  - [ ] Windows
-  - [ ] Linux
-  - [ ] Android
 
 ### Sprint 1
+
+- [x] Result state objects
+  - [x] Abstract
+  - [x] Success
+  - [x] Error
+
+- [ ] Use Cases
+  - [ ] GET Houses
+  - [ ] GET Spells
+  - [ ] GET Wizards
+  - [ ] GET Elixirs
+  - [ ] GET Ingredients
+
+- [ ] Repositories
+  - [ ] HouseRepository
+  - [ ] SpellRepository
+  - [ ] WizardRepository
+  - [ ] ElixirRepository
+  - [ ] IngredientRepository
+
+- [ ] Providers
+  - [ ] HouseProvider
+  - [ ] SpellProvider
+  - [ ] WizardProvider
+  - [ ] ElixirProvider
+  - [ ] IngredientProvider
+
+### Sprint 2
+
+### Additional Tasks
+
+- [ ] Set up workflow to build, at the very least:
+  - [x] Windows
+  - [ ] Linux
+  - [ ] Android
+- [ ] Semver update
+- [ ] Create tag after successful test and analyze
