@@ -53,7 +53,7 @@ jobs:
 
       - name: 🔍 Get project dependencies        
         run: |
-          flutter pub clean && \
+          flutter clean && \
           flutter pub get
 
       - name: 🏃 Run tests
