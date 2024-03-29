@@ -80,8 +80,8 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action/linux@v2
         if: always()
         with:
-          files:
-            test-results/*.json
+          files: |
+            test_reports/test-results.json
 
       - name: 📍Handle failures
         if: failure()
