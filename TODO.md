@@ -12,7 +12,7 @@ No notes
 - [x] Commit boilerplate application code to GitHub
 - [x] Configure markdown files, `.github/` directory and associate code owner(s) to `/src`
 - [x] Configure dependabot
-- [ ] Define the solution architecture (clean/ modular)
+- [x] Define the solution architecture (clean/ modular)
 - [x] Bring in packages
   - [x] dio
   - [x] riverpod  
