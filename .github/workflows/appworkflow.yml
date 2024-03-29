@@ -73,7 +73,7 @@ jobs:
           path: test_reports/test-results.json
           reporter: 'flutter-json'
           max-annotations: '50'
-          working-directory: 'src'
+          working-directory: '${{github.workspace}}/src'
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 📍Handle failures
