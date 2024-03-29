@@ -90,11 +90,18 @@ jobs:
           auth: ${{ secrets.WIZARDING_WORLD_ACTIONS }}
           gistID: "c2f0af7b0a087eb6f9d0b210efe52b3f"
           filename: "wizardingworld.json"
-          label: 'Tests'
+          label: 'Test'
           message: '${{ steps.compile_test_results.outputs.passed }} passed, ${{ steps.compile_test_results.outputs.failed }} failed'
           namedLogo: "TestCafe"
           labelColor: 'lightgrey'
           color: ${{ steps.compile_test_results.outputs.failed == 0 && 'brightgreen' ||  'red' }}
+
+      - name: 🧪📊 Publish coverage report
+        uses: romeovs/lcov-reporter-action@v0.3.1
+        with:
+          lcov-file: ${{github.workspace}}/src/coverage/lcov.info
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          title: 'Coverage Report'
 
       - name: 📍Handle failures
         if: failure()
