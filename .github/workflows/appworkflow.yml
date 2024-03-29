@@ -81,7 +81,7 @@ jobs:
         if: always()
         with:
           files:
-            test-results/**/*.json
+            test-results/*.json
 
       - name: 📍Handle failures
         if: failure()
