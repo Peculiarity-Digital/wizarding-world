@@ -1,2 +1,2 @@
 file_reporters:
-  json: reports/test-results.json
+  json: test_reports/test-results.json

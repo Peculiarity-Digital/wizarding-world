@@ -11,63 +11,92 @@ on:
 permissions:
   contents: read
   actions: read
-  checks: write      
+  checks: write
+  issues: read
+  pull-requests: write   
 
 jobs:
-  checkout:
+  setup_and_test:
+    name: Setup and Test
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
-    name: Check out repository
+    defaults:
+      run:
+        working-directory: src
 
     steps:
-      - uses: actions/checkout@v4
+      - name: ⬇️ Check-out repository
+        uses: actions/checkout@v4
 
-  install_flutter_and_java:
-    needs: checkout
-    name: Install Flutter and Java
-    runs-on: ubuntu-latest
+      - name: 📰 Install LCOV
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install lcov
 
-    steps:
-      - uses: actions/setup-java@v4
+      - name: ☕ Setup Java
+        uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '21'
+          cache: 'gradle'
 
-      - uses: subosito/flutter-action@v2
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
 
-      - name: List directory
+      - name: 🏡 List directory
         run: ls -a          
 
-      - name: Check Flutter version
+      - name: 🔭 Check Flutter version
         run: |
           flutter --version
 
-      - name: Get project dependencies        
+      - name: 🔍 Get project dependencies        
         run: |
+          flutter clean && \
           flutter pub get
 
-  test_and_analyze:
-    needs: install_flutter_and_java
-    runs-on: ubuntu-latest
-    name: Test and Analyze
-
-    steps:
-      - name: Run tests and analysis
+      - name: 🏃 Run tests
         run: |
-          flutter test && analysis
-        
-      - name: Compile test results
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          artifact: test-results
-          name: Flutter tests 
-          path: 'reports/test-results.json'
-          reporter: flutter-json
+          flutter test --coverage
 
-      - name: Handle failures
+      - name: 🏃 Run analyze
+        run: |
+          flutter analyze       
+        
+      - name: 📈 Compile test results
+        id: compile_test_results
+        uses: dorny/test-reporter@v1        
+        with:          
+          name: '🧪📊 Unit tests report'
+          path: test_reports/test-results.json
+          reporter: 'flutter-json'
+          max-annotations: '50'
+          working-directory: 'src'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🚀 Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action/linux@v2
+        if: always()
+        with:
+          files: |
+            ${{github.workspace}}/src/test_reports/test-results.json
+
+      - name: 🪪 Create test results badge
+        uses: schneegans/dynamic-badges-action@v1.6.0
+        with:
+          auth: ${{ secrets.WIZARDING_WORLD_ACTIONS }}
+          gistID: "c2f0af7b0a087eb6f9d0b210efe52b3f"
+          filename: "wizardingworld.json"
+          label: 'Tests'
+          message: '${{ steps.compile_test_results.outputs.passed }} passed, ${{ steps.compile_test_results.outputs.failed }} failed'
+          namedLogo: "TestCafe"
+          labelColor: 'lightgrey'
+          color: ${{ steps.compile_test_results.outputs.failed == 0 && 'brightgreen' ||  'red' }}
+
+      - name: 📍Handle failures
         if: failure()
         run: |
           exit 1
