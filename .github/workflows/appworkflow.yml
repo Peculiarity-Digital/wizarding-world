@@ -16,10 +16,11 @@ permissions:
 jobs:
   setup_and_test:
     name: Setup and Test
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: '${{github.workspace}}/src/'
+        working-directory: src
 
     steps:
       - name: ⬇️ Check-out repository
@@ -73,7 +74,7 @@ jobs:
           path: test_reports/test-results.json
           reporter: 'flutter-json'
           max-annotations: '50'
-          working-directory: '${{github.workspace}}/src'
+          working-directory: 'src'
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 📍Handle failures
