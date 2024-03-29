@@ -11,7 +11,9 @@ on:
 permissions:
   contents: read
   actions: read
-  checks: write      
+  checks: write
+  issues: read
+  pull-requests: write   
 
 jobs:
   setup_and_test:
@@ -65,8 +67,7 @@ jobs:
           flutter analyze       
         
       - name: 📈 Compile test results
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
+        uses: dorny/test-reporter@v1        
         with:          
           name: '🧪📊 Unit tests report'
           path: test_reports/test-results.json
@@ -74,6 +75,13 @@ jobs:
           max-annotations: '50'
           working-directory: 'src'
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🚀 Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action/linux@v2
+        if: always()
+        with:
+          files:
+            test-results/**/*.json
 
       - name: 📍Handle failures
         if: failure()
