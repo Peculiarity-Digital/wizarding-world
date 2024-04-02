@@ -27,28 +27,38 @@ No notes
   - [x] Success
   - [x] Error
 
-- [ ] Use Cases
-  - [ ] GET Houses
+- [x] Use Cases
+  - [x] GET Houses
+
+- [x] Repositories
+  - [x] HouseRepository
+
+- [x] Providers
+  - [x] HouseProvider
+
+- [x] Pages
+  - [x] Display all houses
+  - [x] Drill into a single house detail view
+
+### Sprint 2
+
+- [ ] Use Cases  
   - [ ] GET Spells
   - [ ] GET Wizards
   - [ ] GET Elixirs
   - [ ] GET Ingredients
 
-- [ ] Repositories
-  - [ ] HouseRepository
+- [ ] Repositories  
   - [ ] SpellRepository
   - [ ] WizardRepository
   - [ ] ElixirRepository
   - [ ] IngredientRepository
 
-- [ ] Providers
-  - [ ] HouseProvider
+- [ ] Providers  
   - [ ] SpellProvider
   - [ ] WizardProvider
   - [ ] ElixirProvider
   - [ ] IngredientProvider
-
-### Sprint 2
 
 ### Additional Tasks
 
