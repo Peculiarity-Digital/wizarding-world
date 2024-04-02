@@ -1,0 +1,3 @@
+class ExternalHouseBaseEvent {
+  const ExternalHouseBaseEvent();
+}

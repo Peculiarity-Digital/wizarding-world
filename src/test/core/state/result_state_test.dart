@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:wizarding_world/core/index.dart';
+import 'package:wizarding_world/lib.dart';
 
 void main() {
   group('ResultState', () {

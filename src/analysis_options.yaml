@@ -27,14 +27,7 @@ analyzer:
     - dart_code_metrics
 
   # Exclude auto-generated files from dart analysis
-  exclude:
-    - '**/lib/**.freezed.dart'
-    - '**/lib/**/di.config.dart'
-    - '**/lib/**.g.dart'
-    - '**/lib/**.gr.dart'
-    - '**/test/**.freezed.dart'
-    - '**/test/**.g.dart'
-    - '**/lib/i18n/**.i69n.dart'
+  exclude: [lib/**.g.dart, lib/**.freezed.dart]
 
 dart_code_metrics:
   metrics:

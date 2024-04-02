@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:wizarding_world/lib.dart';
 
 void main() {
-  group('HouseEntity', () {
-    test('can create with all parameters supplied', () {
+  group('HouseModel', () {
+    test('can create model with all parameters supplied', () {
       // Arrange
       final String id = faker.guid.guid();
       final String name = faker.company.name();
@@ -14,22 +14,22 @@ void main() {
       final String element = faker.food.cuisine();
       final String ghost = faker.vehicle.make();
       final String commonRoom = faker.conference.name();
-      final List<HouseHeadEntity> heads = [
-        HouseHeadEntity(
+      final List<HouseHeadModel> heads = [
+        HouseHeadModel(
           id: faker.guid.guid(),
           firstName: faker.person.firstName(),
           lastName: faker.person.lastName(),
         ),
       ];
-      final List<HouseTraitEntity> traits = [
-        HouseTraitEntity(
+      final List<HouseTraitModel> traits = [
+        HouseTraitModel(
           id: faker.guid.guid(),
           name: faker.sport.name(),
         ),
       ];
 
       // Act
-      final entity = HouseEntity(
+      final entity = HouseModel(
         id: id,
         name: name,
         houseColours: houseColours,
@@ -55,7 +55,8 @@ void main() {
       expect(entity.traits, isNotNull);
     });
 
-    test('can create with partial parameters supplied', () {
+    test('can create model from json', () {
+      // Arrange
       final String id = faker.guid.guid();
       final String name = faker.company.name();
       final String houseColours = faker.color.color();
@@ -65,60 +66,37 @@ void main() {
       final String ghost = faker.vehicle.make();
       final String commonRoom = faker.conference.name();
 
+      final Map<String, dynamic> mockJson = {
+        'id': id,
+        'name': name,
+        'houseColours': houseColours,
+        'founder': founder,
+        'animal': animal,
+        'element': element,
+        'ghost': ghost,
+        'commonRoom': commonRoom,
+        'heads': [
+          {
+            'id': faker.guid.guid(),
+            'firstName': faker.person.firstName(),
+            'lastName': faker.person.lastName(),
+          }
+        ],
+        'traits': [
+          {
+            'id': faker.guid.guid(),
+            'name': faker.sport.name(),
+          }
+        ],
+      };
+
       // Act
-      final entity = HouseEntity(
-        id: id,
-        name: name,
-        houseColours: houseColours,
-        founder: founder,
-        animal: animal,
-        element: element,
-        ghost: ghost,
-        commonRoom: commonRoom,
-      );
+      final entity = HouseModel.fromJson(mockJson);
 
       // Assert
       expect(entity.id, id);
-      expect(entity.name, name);
-      expect(entity.houseColours, houseColours);
-      expect(entity.founder, founder);
-      expect(entity.animal, animal);
-      expect(entity.element, element);
-      expect(entity.ghost, ghost);
-      expect(entity.commonRoom, commonRoom);
-      expect(entity.heads, isNull);
-      expect(entity.traits, isNull);
-    });
-
-    test('can create with no parameters supplied', () {
-      // Arrange
-
-      // Act
-      const entity = HouseEntity();
-
-      // Assert
-      expect(entity.id, isNull);
-      expect(entity.name, isNull);
-      expect(entity.houseColours, isNull);
-      expect(entity.founder, isNull);
-      expect(entity.animal, isNull);
-      expect(entity.element, isNull);
-      expect(entity.ghost, isNull);
-      expect(entity.commonRoom, isNull);
-      expect(entity.heads, isNull);
-      expect(entity.traits, isNull);
-    });
-
-    test('can create with partial parameters supplied', () {
-      final String id = faker.guid.guid();
-
-      // Act
-      final entity = HouseEntity(
-        id: id,
-      );
-
-      // Assert
-      expect(entity.props, contains(id));
+      expect(entity.heads, isNotNull);
+      expect(entity.traits, isNotNull);
     });
   });
 }
