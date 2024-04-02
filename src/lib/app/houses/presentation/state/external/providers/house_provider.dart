@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:wizarding_world/app/houses/domain/cases/get_all_houses.dart';
 import 'package:wizarding_world/lib.dart';
 
 class ExternalHousesBloc
@@ -12,7 +11,9 @@ class ExternalHousesBloc
   }
 
   Future<void> onGetHouses(
-      GetHousesEvent event, Emitter<ExternalHouseState> emit) async {
+    GetHousesEvent event,
+    Emitter<ExternalHouseState> emit,
+  ) async {
     final outcome = await _housesCase();
 
     if (outcome is ResultSuccess && outcome.result!.isNotEmpty) {

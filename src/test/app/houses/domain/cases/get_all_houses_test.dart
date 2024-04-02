@@ -1,12 +1,8 @@
-import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:retrofit/dio.dart';
-import 'package:wizarding_world/app/houses/domain/cases/get_all_houses.dart';
+
 import 'package:wizarding_world/lib.dart';
 
 import 'get_all_houses_test.mocks.dart';

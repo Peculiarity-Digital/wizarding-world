@@ -6,7 +6,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:retrofit/dio.dart';
-import 'package:wizarding_world/app/houses/data/repositories/house_respository_impl.dart';
 import 'package:wizarding_world/lib.dart';
 
 import 'house_respository_impl_test.mocks.dart';
