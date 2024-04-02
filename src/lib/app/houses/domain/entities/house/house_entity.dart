@@ -2,8 +2,8 @@ library house;
 
 import 'package:equatable/equatable.dart';
 
-part './house_head.dart';
-part './house_trait.dart';
+part 'house_head_entity.dart';
+part 'house_trait_entity.dart';
 
 class HouseEntity extends Equatable {
   const HouseEntity({

@@ -1,6 +1,6 @@
 part of 'house_entity.dart';
 
-class HouseTraitEntity {
+class HouseTraitEntity extends Equatable {
   const HouseTraitEntity({
     this.id,
     this.name,
@@ -8,4 +8,10 @@ class HouseTraitEntity {
 
   final String? id;
   final String? name;
+
+  @override
+  List<Object?> get props => [
+        id,
+        name,
+      ];
 }
