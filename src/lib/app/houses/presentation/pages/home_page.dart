@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
       create: (context) => loc()..add(const GetHousesEvent()),
       child: Scaffold(
         appBar: const HousesAppBar(),
+        bottomNavigationBar: const AppBottomNav(),
         body: SafeArea(
           child: ResponsiveBuilder(
             builder: (context, info) {

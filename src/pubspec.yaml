@@ -30,6 +30,8 @@ dependencies:
   responsive_builder: ^0.7.0
   auto_route: ^8.0.3
   auto_route_generator: ^8.0.0
+  flutter_snake_navigationbar: ^0.6.1
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:

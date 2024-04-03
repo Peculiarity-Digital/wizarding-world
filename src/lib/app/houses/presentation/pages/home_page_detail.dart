@@ -15,6 +15,7 @@ class HomePageDetail extends StatelessWidget {
       appBar: HousesAppBar(
         title: house.name!,
       ),
+      bottomNavigationBar: const AppBottomNav(),
       body: SafeArea(
         child: ResponsiveBuilder(
           builder: (context, info) {

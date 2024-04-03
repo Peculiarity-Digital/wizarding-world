@@ -10,5 +10,9 @@ class AppRoute extends _$AppRoute {
   List<AutoRoute> get routes => [
         AutoRoute(page: HomeRoute.page, initial: true),
         AutoRoute(page: HomeRouteDetail.page),
+        AutoRoute(page: ElixirRoute.page),
+        AutoRoute(page: IngredientRoute.page),
+        AutoRoute(page: SpellRoute.page),
+        AutoRoute(page: WizardRoute.page),
       ];
 }

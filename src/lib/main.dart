@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wizarding_world/lib.dart';
 
 Future<void> main() async {
@@ -7,7 +8,10 @@ Future<void> main() async {
   await init();
   runApp(
     DevicePreview(
-      builder: (context) => const MyApp(),
+      builder: (context) => ChangeNotifierProvider(
+        create: (_) => BottomNavNotifier(),
+        child: const MyApp(),
+      ),
     ),
   );
 }
