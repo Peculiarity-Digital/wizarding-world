@@ -10,7 +10,7 @@ class WizardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HousesAppBar(
+      appBar: const CustomAppBar(
         title: 'Wizard',
       ),
       bottomNavigationBar: const AppBottomNav(),

@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
     return BlocProvider<ExternalHousesBloc>(
       create: (context) => loc()..add(const GetHousesEvent()),
       child: Scaffold(
-        appBar: const HousesAppBar(),
+        appBar: const CustomAppBar(),
         bottomNavigationBar: const AppBottomNav(),
         body: SafeArea(
           child: ResponsiveBuilder(

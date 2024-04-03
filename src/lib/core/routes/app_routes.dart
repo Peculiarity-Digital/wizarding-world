@@ -11,6 +11,7 @@ class AppRoute extends _$AppRoute {
         AutoRoute(page: HomeRoute.page, initial: true),
         AutoRoute(page: HomeRouteDetail.page),
         AutoRoute(page: ElixirRoute.page),
+        AutoRoute(page: ElixirDetailRoute.page),
         AutoRoute(page: IngredientRoute.page),
         AutoRoute(page: SpellRoute.page),
         AutoRoute(page: WizardRoute.page),

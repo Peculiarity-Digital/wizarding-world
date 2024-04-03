@@ -1,1 +1,1 @@
-export './wizarding_world_service.dart';
+export 'houses_service.dart';

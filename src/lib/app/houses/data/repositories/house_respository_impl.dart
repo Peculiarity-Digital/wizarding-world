@@ -5,7 +5,7 @@ import 'package:wizarding_world/app/index.dart';
 import 'package:wizarding_world/core/index.dart';
 
 class HouseRepositoryImpl implements HouseRepository {
-  final WizardingWorldService _service;
+  final HousesService _service;
 
   const HouseRepositoryImpl(this._service);
 

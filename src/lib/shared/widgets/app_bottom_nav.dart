@@ -12,6 +12,7 @@ class AppBottomNav extends StatelessWidget {
     return Consumer<BottomNavNotifier>(
       builder: (context, provider, _) => SnakeNavigationBar.color(
         currentIndex: provider.selectedIndex,
+        height: 55.0,
         padding: const EdgeInsets.all(4.0),
         selectedItemColor: Colors.white,
         showUnselectedLabels: true,
@@ -21,35 +22,35 @@ class AppBottomNav extends StatelessWidget {
           switch (index) {
             case 0:
               {
-                context.router.push(
+                context.router.replace(
                   const HomeRoute(),
                 );
                 break;
               }
             case 1:
               {
-                context.router.push(
+                context.router.replace(
                   const ElixirRoute(),
                 );
                 break;
               }
             case 2:
               {
-                context.router.push(
+                context.router.replace(
                   const IngredientRoute(),
                 );
                 break;
               }
             case 3:
               {
-                context.router.push(
+                context.router.replace(
                   const SpellRoute(),
                 );
                 break;
               }
             case 4:
               {
-                context.router.push(
+                context.router.replace(
                   const WizardRoute(),
                 );
                 break;
@@ -59,23 +60,23 @@ class AppBottomNav extends StatelessWidget {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.house),
-            label: 'Houses',
+            label: 'House',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.science),
-            label: 'Elixirs',
+            label: 'Elixir',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.energy_savings_leaf),
-            label: 'Ingredients',
+            label: 'Ingredient',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.flight_class_sharp),
-            label: 'Spells',
+            label: 'Spell',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_2),
-            label: 'Wizards',
+            label: 'Wizard',
           ),
         ],
       ),

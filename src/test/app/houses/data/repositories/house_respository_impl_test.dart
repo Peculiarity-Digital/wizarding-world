@@ -10,13 +10,13 @@ import 'package:wizarding_world/lib.dart';
 
 import 'house_respository_impl_test.mocks.dart';
 
-@GenerateMocks([WizardingWorldService])
+@GenerateMocks([HousesService])
 void main() {
   late HouseRepositoryImpl repository;
-  late MockWizardingWorldService mockService;
+  late MockHousesService mockService;
 
   setUp(() {
-    mockService = MockWizardingWorldService();
+    mockService = MockHousesService();
     repository = HouseRepositoryImpl(mockService);
   });
 

@@ -10,7 +10,7 @@ class IngredientPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HousesAppBar(
+      appBar: const CustomAppBar(
         title: 'Ingredients',
       ),
       bottomNavigationBar: const AppBottomNav(),

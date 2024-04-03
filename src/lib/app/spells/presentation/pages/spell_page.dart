@@ -10,7 +10,7 @@ class SpellPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HousesAppBar(
+      appBar: const CustomAppBar(
         title: 'Spells',
       ),
       bottomNavigationBar: const AppBottomNav(),

@@ -36,7 +36,7 @@ class HousesGridView extends StatelessWidget {
                 itemBuilder: (context, count) {
                   return GestureDetector(
                     onTap: () {
-                      context.router.push(
+                      context.router.replace(
                         HomeRouteDetail(
                           house: state.houses![count] as HouseModel,
                         ),
@@ -46,8 +46,6 @@ class HousesGridView extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const CircleAvatar(),
-                          const SizedBox(height: 15),
                           Text(
                             state.houses![count].name!,
                             style: const TextStyle(

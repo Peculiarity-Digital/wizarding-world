@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'wizarding_world_service.dart';
+part of 'houses_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'wizarding_world_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _WizardingWorldService implements WizardingWorldService {
-  _WizardingWorldService(
+class _HousesService implements HousesService {
+  _HousesService(
     this._dio, {
     this.baseUrl,
   }) {

@@ -1,0 +1,3 @@
+class ExternalElixirBaseEvent {
+  const ExternalElixirBaseEvent();
+}
