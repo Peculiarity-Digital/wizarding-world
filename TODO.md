@@ -60,6 +60,14 @@ No notes
   - [ ] ElixirProvider
   - [ ] IngredientProvider
 
+- [x] Bottom Navigation
+- [x] Routes
+  - [x] Home/ Houses
+  - [x] Elixirs
+  - [x] Ingredients
+  - [x] Spells
+  - [x] Wizards
+
 ### Additional Tasks
 
 - [ ] Set up workflow to build, at the very least:
