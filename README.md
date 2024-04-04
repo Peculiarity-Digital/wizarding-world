@@ -54,6 +54,8 @@ I use [LCOV Viewer](https://lcov-viewer.netlify.app/) to view `*.lcov` files in 
 
 At the time of writing, `shields.io` was blocked from displaying a badge for coverage, and the badge has been removed. There is a TODO to rectify in due course.
 
+![image](https://github.com/JadedEric/wizarding-world/assets/1898304/3924979d-b14b-4027-991f-ead527312e95)
+
 ### Architecture
 
 Coming from a .Net background, I'm always finding myself trying out the `Clean Architecture` pattern for my project, where possible.
