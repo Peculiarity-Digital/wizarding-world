@@ -33,12 +33,11 @@ class _FakeHttpResponse_0<T> extends _i1.SmartFake
         );
 }
 
-/// A class which mocks [WizardingWorldService].
+/// A class which mocks [HousesService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockWizardingWorldService extends _i1.Mock
-    implements _i3.WizardingWorldService {
-  MockWizardingWorldService() {
+class MockHousesService extends _i1.Mock implements _i3.HousesService {
+  MockHousesService() {
     _i1.throwOnMissingStub(this);
   }
 

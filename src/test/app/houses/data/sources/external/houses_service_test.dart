@@ -5,17 +5,17 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wizarding_world/lib.dart';
 
-import 'wizarding_world_service_test.mocks.dart';
+import 'houses_service_test.mocks.dart';
 
 @GenerateMocks([Dio])
 void main() {
   group('Wizarding World Service', () {
     late MockDio mockDio;
-    late WizardingWorldService service;
+    late HousesService service;
 
     setUp(() {
       mockDio = MockDio();
-      service = WizardingWorldService(mockDio);
+      service = HousesService(mockDio);
     });
 
     test('can successfully retrieve houses from API', () async {

@@ -10,7 +10,7 @@ class WizardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HousesAppBar(
+      appBar: const CustomAppBar(
         title: 'Wizard',
       ),
       bottomNavigationBar: const AppBottomNav(),
@@ -18,7 +18,15 @@ class WizardPage extends StatelessWidget {
         child: ResponsiveBuilder(
           builder: (context, info) {
             if (info.isMobile) {
-              return const Text('Wizard Page');
+              return const Center(
+                child: Text(
+                  'Page implementation pending',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              );
             }
 
             return const Center(

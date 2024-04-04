@@ -15,6 +15,16 @@ abstract class _$AppRoute extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ElixirDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<ElixirDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ElixirDetailPage(
+          elixir: args.elixir,
+          key: args.key,
+        ),
+      );
+    },
     ElixirRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -56,6 +66,44 @@ abstract class _$AppRoute extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [ElixirDetailPage]
+class ElixirDetailRoute extends PageRouteInfo<ElixirDetailRouteArgs> {
+  ElixirDetailRoute({
+    required ElixirModel elixir,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ElixirDetailRoute.name,
+          args: ElixirDetailRouteArgs(
+            elixir: elixir,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ElixirDetailRoute';
+
+  static const PageInfo<ElixirDetailRouteArgs> page =
+      PageInfo<ElixirDetailRouteArgs>(name);
+}
+
+class ElixirDetailRouteArgs {
+  const ElixirDetailRouteArgs({
+    required this.elixir,
+    this.key,
+  });
+
+  final ElixirModel elixir;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ElixirDetailRouteArgs{elixir: $elixir, key: $key}';
+  }
 }
 
 /// generated route for

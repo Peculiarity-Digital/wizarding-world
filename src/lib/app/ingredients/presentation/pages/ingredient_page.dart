@@ -10,7 +10,7 @@ class IngredientPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HousesAppBar(
+      appBar: const CustomAppBar(
         title: 'Ingredients',
       ),
       bottomNavigationBar: const AppBottomNav(),
@@ -18,7 +18,15 @@ class IngredientPage extends StatelessWidget {
         child: ResponsiveBuilder(
           builder: (context, info) {
             if (info.isMobile) {
-              return const Text('Ingredient Page');
+              return const Center(
+                child: Text(
+                  'Page implementation pending',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              );
             }
 
             return const Center(

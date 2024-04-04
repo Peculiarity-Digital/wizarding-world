@@ -12,7 +12,7 @@ class HomePageDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HousesAppBar(
+      appBar: CustomAppBar(
         title: house.name!,
       ),
       bottomNavigationBar: const AppBottomNav(),

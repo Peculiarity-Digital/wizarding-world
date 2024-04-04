@@ -9,8 +9,12 @@ final loc = GetIt.instance;
 Future<void> init() async {
   loc
     ..registerSingleton<Dio>(Dio())
-    ..registerSingleton<WizardingWorldService>(WizardingWorldService(loc()))
+    ..registerSingleton<HousesService>(HousesService(loc()))
     ..registerSingleton<HouseRepository>(HouseRepositoryImpl(loc()))
     ..registerSingleton<GetAllHousesCase>(GetAllHousesCase(loc()))
-    ..registerFactory<ExternalHousesBloc>(() => ExternalHousesBloc(loc()));
+    ..registerFactory<ExternalHousesBloc>(() => ExternalHousesBloc(loc()))
+    ..registerSingleton<ElixirsService>(ElixirsService(loc()))
+    ..registerSingleton<ElixirRepository>(ElixirRepositoryImpl(loc()))
+    ..registerSingleton<GetAllElixirsCase>(GetAllElixirsCase(loc()))
+    ..registerFactory<ExternalElixirBloc>(() => ExternalElixirBloc(loc()));
 }

@@ -3,11 +3,11 @@ import 'package:retrofit/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:wizarding_world/lib.dart';
 
-part 'wizarding_world_service.g.dart';
+part 'houses_service.g.dart';
 
 @RestApi(baseUrl: apiBaseUrl)
-abstract class WizardingWorldService {
-  factory WizardingWorldService(Dio dio) = _WizardingWorldService;
+abstract class HousesService {
+  factory HousesService(Dio dio) = _HousesService;
 
   @GET('/houses')
   Future<HttpResponse<List<HouseModel>>> getHouses();
