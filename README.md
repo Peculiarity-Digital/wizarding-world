@@ -3,7 +3,6 @@ A Flutter-based application, using an API around the Wizarding World in the Harr
 
 ![Static Badge](https://img.shields.io/badge/flutter-architecture-brightgreen?style=for-the-badge&logo=flutter)
 ![Static Badge](https://img.shields.io/badge/flutter-challenge-red?style=for-the-badge&logo=flutter)
-![Static Badge](https://img.shields.io/badge/hire-me-yellow?style=for-the-badge&labelColor=brightgreen&color=yellow)
 
 ### Tech Stack
 
